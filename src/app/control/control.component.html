@@ -1,0 +1,47 @@
+<div class="row outer-row justify-content-center align-items-center">
+    <div class="col-5">
+        <div class="card" *ngFor="let item of data">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <img class="card-img-top" [src]="'../../assets/avatars/'+ item.url">
+                </div>
+                <div class="col">
+                    <h5>{{item.heading}}</h5>
+                    <p class="card-text">{{item.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <form [formGroup]="updateForm">
+            <div class="form-group">
+                <label for="heading">Heading</label>
+                <input type="text" formControlName="heading" class="form-control" id="heading" placeholder="Heading">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea rows="4" formControlName="content" class="form-control" id="content" placeholder="Heading"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="content">Select Avatar</label>
+                <div class="row avatar-row">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <img *ngIf="selectedAvatar==1" class="tick" src="../../assets/checked.png"/>
+                        <img src="../../assets/avatars/avatar_1.png" (click)="selectAvatar('avatar_1.png',1)" class="avatar"/>
+                    </div>
+                    <div class="col-4  d-flex justify-content-center align-items-center">
+                        <img *ngIf="selectedAvatar==2" class="tick" src="../../assets/checked.png" />
+                        <img src="../../assets/avatars/avatar_2.png" (click)="selectAvatar('avatar_2.png',2)" class="avatar"/>
+                    </div>
+                    <div class="col-4  d-flex justify-content-center align-items-center">
+                        <img *ngIf="selectedAvatar==3" class="tick" src="../../assets/checked.png" />
+                        <img src="../../assets/avatars/avatar_3.png" (click)="selectAvatar('avatar_3.png',3)" class="avatar" />
+                    </div>
+                </div>
+            </div>
+            <button type="button" (click)="add()" class="btn btn-primary btn-lg btn-block" [disabled]="updateForm.invalid">
+                update
+            </button>
+        </form>
+    </div>
+</div>

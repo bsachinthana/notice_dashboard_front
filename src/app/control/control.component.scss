@@ -1,0 +1,17 @@
+.outer-row{
+    height:100%;
+}
+
+.avatar-row{
+    img{
+        width:100%;
+    }
+    img.avatar:hover{
+        background-color: #4de68a;
+    }
+    .tick{
+        position: absolute;
+        width: 60%;
+        opacity: 0.7;
+    }
+}
